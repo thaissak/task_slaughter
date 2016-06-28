@@ -1,0 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300italic);
+@import url(https://fonts.googleapis.com/css?family=Trirong:500);
+
+body{
+	font-family: 'Lato', Sans-Serif;
+}
+
+h1{
+	color: #605F83;
+	font-family: 'Trirong', Serif;
+	letter-spacing: 1px;
+}
+
+h3{
+	color: #00134d;
+}
+
+label{
+	display: block;
+	margin-bottom: 5px;
+}
+
+input{
+	width: 70%;
+}
+
+button{
+	font-size: 14px;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+	font-size: 14px;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+.registration{
+	border: 3px solid #002080;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.login{
+	border: 3px solid #002080;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.registration, .login{
+	display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+
+.flashes{
+	list-style: none;
+	color: #8F002A;
+	font-size: 14px;
+	padding-left: 0px;
+}

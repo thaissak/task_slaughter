@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Task Slaughter</title>
+  </head>
+  <body>
+    <header>
+    	<h1>Task Slaughter</h1>	
+    </header>
+    
+    <section>
+    	<h3>Hello {{ user_name }}!</h3>
+    	<p>Here's what you have scheduled for today {{ curr_date }}:</p>
+    	 <table>
+            <tbody>
+                <!-- {% for task in tasks %} -->
+                    <tr>
+                        <td id="name">{{ task['time'] }}</td>
+                        <td id="alias">{{ task['name'] }}</td>
+                        <td id="action">
+                            <button type="submit" name="">Done!</button>
+                            <button type="submit" name="">Edit</button>
+                            <button type="submit" name="">Cancel</button>
+                        </td>   
+                    </tr>
+               <!--  {% endfor %}  -->          
+            </tbody>
+         </table>
+    </section>
+  </body>
+</html>

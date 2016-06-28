@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Task Slaughter</title>
+  </head>
+  <body>
+    <header>
+      <h1>Task Slaughter</h1> 
+    </header>
+
+    <section class="registration">
+    	<h3>Registration</h3>
+      <p>Task Slaughter is here to help you keep all your tasks on track!</p>
+      <a href="/task_slaughter/registration">Start now!</a>
+    </section>
+
+    <section class="login">
+    	<h3>Login</h3>
+    	{% with messages = get_flashed_messages(category_filter=['login']) %}
+    		{% if messages %}
+    			<ul class="flashes">
+      				{% for message in messages %}
+        				<li>{{message}}</li>
+      				{% endfor %}
+      			</ul>
+    		{% endif %}
+    	{% endwith %}
+    	<form class="form" action="/task_slaughter/login_process" method="post">
+    		<label>
+    			E-mail:<br>
+    			<input type="text" name="email"></input>
+    		</label>
+    		<label>
+    			Password:<br>
+    			<input type="password" name="password"></input>
+    		</label>
+    		<button type="submit" name="login">Login</button>
+    	</form>
+    </section>
+
+
+  </body>
+</html>
