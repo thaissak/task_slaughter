@@ -1,1 +1,3 @@
 # task_slaughter
+
+Python Project using Pylot, API, AJAX...
