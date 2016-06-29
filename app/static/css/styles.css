@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,300italic);
-@import url(https://fonts.googleapis.com/css?family=Trirong:500);
+@import url(https://fonts.googleapis.com/css?family=Lemonada:700);
 
 /*COLORS:
 app name - #962d3e (red/pink)
@@ -18,6 +18,7 @@ body{
 	font-family: 'Lato', Sans-Serif;
 	font-size: 16px;
 	line-height: 1.5em;
+	background-color: #fffaf0
 }
 
 h3{
@@ -25,18 +26,16 @@ h3{
 }
 
 button{
-	
+	background-color: #f2ebc7;
 }
 
 a{
-	text-decoration: none;
-	color: inherit;
-	font-size: 0.9em;
+	color: #962d3e;
+	font-size: 1em;
 	padding: 5px;
 	margin: 5px 0px 5px 0px;
-	border-radius: 5px;
-	background-color: #99b3ff;
-	border: 0;
+	font-weight: bold;
+	border: 0px;
 }
 
 label{
@@ -57,16 +56,52 @@ label{
 /*HEADER*/
 
 h1{
-	color: #605F83;
-	font-family: 'Trirong', Serif;
-	letter-spacing: 1px;
+    color:#962d3e ;
+    font-family: 'Lemonada', Serif;
+    letter-spacing: 1px;
+    font-size: 2.5em;
+    display: inline-block;
+    width: 30%;
+    text-align: center;
 }
 
 header{
-	display: block;
-	margin-bottom: 40px;
+    height: 100px;
+    margin: 1% 0%;
+    width: 100%;
 }
 
+header a{
+	display: inline;
+    vertical-align: top;
+}
+
+.links{
+	display: block;
+	width: 30%;
+}
+
+.links a{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#weather{
+	display: inline-block;
+	background-color: #348899;
+	border-radius: 5px;
+    padding: 5px 15px 0px 15px;
+}
+
+#weather img{
+	margin-left: 8px;
+}
+
+#weather h4{
+	margin: 0px;
+	text-align: center;
+	color: #f2ebc7;
+}
 
 /*LOGIN*/
 
@@ -144,6 +179,7 @@ header{
 	width: 30%;
 	font-size: 1em;
 	border-radius: 5px;
+	margin-bottom: 10px;
 }
 
 .new_location{
@@ -183,7 +219,7 @@ header{
 }
 
 #state{
-	width: 15%;
+	width: 20%;
 }
 
 #zip{

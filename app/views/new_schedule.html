@@ -14,8 +14,9 @@
   </head>
   <body>
     <header>
-    	<h1>Task Slaughter</h1>	
-    	<a href="/task_slaughter/logout">Logout</a> 
+       <h1>Task Slaughter</h1>    
+       <a id="back_button" href="/task_slaughter/dashboard">Back</a>
+       <a id="back_button" href="/task_slaughter/logout">Logout</a>
     </header>
 
     {% with messages = get_flashed_messages() %}
@@ -71,7 +72,8 @@
 		    			{% for location in locations %}
 		    				<option  value="{{ location['id'] }}">{{ location['location_name'] }}</option>
 		    			{% endfor %}
-			    	</select>
+			    	</select><br>
+			    	<button type="submit">Add</button>
 		    	</div>
 		    </section>
 

@@ -1,4 +1,5 @@
 from system.core.controller import *
+from time import strftime
 
 class Schedules(Controller):
     def __init__(self, action):
@@ -22,6 +23,11 @@ class Schedules(Controller):
         return self.load_view('new_schedule.html', locations=locations)
 
     def task_update(self):
+        print "haha"
+        print "haha"
+        print "haha"
+        print "haha"
+        print "haha"
         if request.form['button'] == 'done':
             print "got in"
             self.models['Schedule'].update_task_done(request.form['task_id'])

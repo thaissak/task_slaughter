@@ -4,33 +4,35 @@
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
    	<script type="text/javascript">
-   		$(document).ready(function() {
-            $('form').submit(function() {
-                var name = $('#location').val();
-                $.get('http://api.openweathermap.org/data/2.5/weather?q=' +name+ '&&appid=36279e2d034cc5833fe7086b5d812509', function(res){
-                    var weather_str="";
-                    var weather_desc=res['weather'][0]['description'];
-                    weather_str+="<h1>"+res['name']+"</h1>";
-                    farenheit= (res['main']['temp'])* (9/5)-459.67;
-                    weather_str+='<h2>Temperature: ' + Math.round(farenheit)+ '&#8457; </h2>';
-                    var weather_img=res['weather'][0]['icon']
-                    weather_str += "<img src='http://openweathermap.org/img/w/" + weather_img + ".png'/>";
-                    weather_str+="<h3> Description: "+weather_desc+"</h3>";
-                    $('#weather').html(weather_str);
-                    console.log(weather_img);
-                    console.log(weather_desc);
-                    console.log(res);
-                },'json');
-                return false;
-            });
-         });
+    // REMEMBER TO CHANGE THE FORM
+   		// $(document).ready(function() {
+     //        $('form').submit(function() {
+     //            var name = $('#location').val();
+     //            $.get('http://api.openweathermap.org/data/2.5/weather?q=' +name+ '&&appid=36279e2d034cc5833fe7086b5d812509', function(res){
+     //                var weather_str="";
+     //                var weather_desc=res['weather'][0]['description'];
+     //                // weather_str+="<h4>"+res['name']+"</h4>";
+     //                farenheit= (res['main']['temp'])* (9/5)-459.67;
+     //                weather_str+='<h4>' + Math.round(farenheit)+ '&#8457; </h4>';
+     //                var weather_img=res['weather'][0]['icon']
+     //                weather_str += "<img src='http://openweathermap.org/img/w/" + weather_img + ".png'/>";
+     //                // weather_str+="<h5> Description: "+weather_desc+"</h5>";
+     //                $('#weather').html(weather_str);
+     //            },'json');
+     //            return false;
+     //        });
+     //     });
    	</script>
   </head>
   <body>
     <header>
-    	<h1>Task Slaughter</h1>	
-    	<a href="/task_slaughter/logout">Logout</a>
-    	<div id="weather"></div> 
+       <h1>Task Slaughter</h1>    
+           <a href="/task_slaughter/logout">Logout</a>
+        <div class="links">
+           <a href="/task_slaughter/new_schedule">Add Task</a>
+           <a href="/task_slaughter/new_schedule">Add Location</a>
+       </div>
+     <!--   <div id="weather"></div>  -->
     </header>
     
     <section>
@@ -40,27 +42,27 @@
             <tbody>
                 {% for task in tasks %}
                     <tr>
-                        <td id="task_time">{{ task['time'] }}</td>
-                        <td id="task_name">{{ task['task_name'] }}</td>
-                        <td id="task_status">{{ task['status'] }}</td>
+                        <td id="task_time">{{ task['time'] }} -</td>
+                        <td id="task_name">{{ task['task_name'] }} -</td>
+                        <td id="task_status">{{ task['status'] }} -</td>
                         <td id="location_name">{{ task['location_name'] }}</td>
+                        <input type="hidden" value="{{ task['status']}}"></input>
                         <td id="action">
                             <form action="/task_slaughter/dashboard/task_update" method="post">
+                            {% if task['status'] == 'Pending' %}
                             	<button type="submit" name="button" value="done">Done!</button>
                             	<button type="submit" name="button" value="cancel">Cancel</button>
+                            {% endif %}
                             	<input type="hidden" name="task_id" value="{{ task['id'] }}"></input>
+                            
                             </form>
-                            <form method="post">
-        						<input id="location" type="hidden" name="city" value="{{ task['city'] }}" >
-        						<input type="submit" name="submit" value="Check Weather!">
-    						</form>
                         </td>   
                     </tr>
                 {% endfor %}           
             </tbody>
          </table>
     </section>
-
+   
     <section id="map">
         <!-- LOAD GOOGLE MAP HERE! -->
     </section>

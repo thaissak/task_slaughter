@@ -7,6 +7,7 @@ class Schedule(Model):
         super(Schedule, self).__init__()
 
     def curr_date(self):
+        # datetime.date.today() + datetime.timedelta(days=1)
         curr_date = datetime.now()
         curr_date = curr_date.strftime("%b %d, %Y")
         return curr_date
@@ -22,7 +23,7 @@ class Schedule(Model):
         return self.db.query_db(query, data)
 
     def get_curr_tasks(self, user_id):
-    	query = "select tasks.id, tasks.date, tasks.time, tasks.task_name, tasks.status, locations.location_name, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE()"
+    	query = "select tasks.id, tasks.date, tasks.status, date_format(tasks.time,'%k:%i %p') as time, tasks.task_name, tasks.status, locations.location_name, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE() order by time DESC"
     	data = {'id': user_id}
     	return self.db.query_db(query, data)
 
@@ -66,8 +67,6 @@ class Schedule(Model):
 
 	    if not new_task['task_name'] or not new_task['priority'] or not new_task['date'] or not new_task['time'] or not new_task['status']:
 	        errors.append('All tasks fields are mandatory!')
-	    # if not new_task['location_name'] and not new_task['location_id']:
-	    # 	errors.append('Location is mandatory!')
 	    if self.get_tasks(new_task['task_name']):
 	        errors.append('You already have a task with this name!')
 
