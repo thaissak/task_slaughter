@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Task Slaughter</title>
+  </head>
+  <body>
+    <header>
+        <h1>Task Slaughter</h1>
+        <a href="/task_slaughter">Back</a> 
+    </header>
+    
+    <section class="registration">
+    	<h1>Registration</h1>
+    	{% with messages = get_flashed_messages(category_filter=['validation']) %}
+    		{% if messages %}
+    			<ul class="flashes">
+      				{% for message in messages %}
+        				<li>{{message}}</li>
+      				{% endfor %}
+      			</ul>
+    		{% endif %}
+    	{% endwith %}
+    	<form class="form" action="/task_slaughter/registration_process" method="post">
+    		<label>
+    			First Name:<br>
+    			<input type="text" name="first_name"></input>
+    		</label>
+    		<label>
+    			Last Name:<br>
+    			<input type="text" name="last_name"></input>
+    		</label>
+            <label>
+                Phone:<br>
+                <input type="text" name="phone"></input>
+            </label>
+    		<label>
+    			E-mail:<br>
+    			<input type="email" name="email"></input>
+    		</label>
+    		<label>
+    			Password:<br>
+    			<input type="password" name="password"></input>
+    		</label>
+    		<label>
+    			Confirm Password:<br>
+    			<input type="password" name="pwd_conf"></input>
+    		</label>
+            <button type="submit" name="add">Submit</button>
+        </form>
+    </section>
+  </body>
+</html>

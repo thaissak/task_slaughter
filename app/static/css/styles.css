@@ -1,3 +1,102 @@
-* {
-  font-family: monaco;
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300italic);
+@import url(https://fonts.googleapis.com/css?family=Trirong:500);
+
+/*COLORS:
+app name - #962d3e (red/pink)
+buttons background - #348899 (blue)
+buttons text color - #f2ebc7 (cream/white)
+titles - #343642 (grey/blue)
+plain text - black
+border color - #962d3e (red/pink)
+background color (header) - #979C9C(grey)
+background color (body) - #f2ebc7 (cream/white)
+create tasks/location - #348899 (blue)*/
+
+body{
+	font-family: 'Lato', Sans-Serif;
+}
+
+h1{
+	color: #605F83;
+	font-family: 'Trirong', Serif;
+	letter-spacing: 1px;
+}
+
+h3{
+	color: #00134d;
+}
+
+label{
+	display: block;
+	margin-bottom: 5px;
+}
+
+input{
+	width: 70%;
+}
+
+button{
+	font-size: 14px;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+	font-size: 14px;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+
+.registration{
+	border: 3px solid #002080;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.login{
+	border: 3px solid #002080;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.registration, .login{
+	display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+
+.flashes{
+	list-style: none;
+	color: #8F002A;
+	font-size: 14px;
+	padding-left: 0px;
+}
+
+.collapse_on{
+	background-color: #f9edeb;
+	color: #2B3856;
+	width: 79%;
+	margin: 0% 8% 0% 11%;
+	padding: 1% 1%;
+}
+
+.collapse_off{
+	background-color: #Ebe3e0;
+	border-radius: 10px 10px 0px 0px;
+	
+}
+
+.hidden{
+	display: none;
 }
