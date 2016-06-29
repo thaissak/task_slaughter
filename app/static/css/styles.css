@@ -12,9 +12,49 @@ background color (header) - #979C9C(grey)
 background color (body) - #f2ebc7 (cream/white)
 create tasks/location - #348899 (blue)*/
 
+/*GENERAL*/ 
+
 body{
 	font-family: 'Lato', Sans-Serif;
+	font-size: 16px;
+	line-height: 1.5em;
 }
+
+h3{
+	font-size: 1.3em;
+}
+
+button{
+	
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+	font-size: 0.9em;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+label{
+	margin-bottom: 10px;
+}
+
+
+/*ERROR MESSAGES*/
+
+.flashes{
+	list-style: none;
+	color: #8F002A;
+	font-size: 0.9em;
+	padding-left: 0px;
+}
+
+
+/*HEADER*/
 
 h1{
 	color: #605F83;
@@ -22,79 +62,147 @@ h1{
 	letter-spacing: 1px;
 }
 
-h3{
-	color: #00134d;
-}
-
-label{
+header{
 	display: block;
-	margin-bottom: 5px;
+	margin-bottom: 40px;
 }
 
-input{
-	width: 70%;
-}
 
-button{
-	font-size: 14px;
-	padding: 5px;
-	margin: 5px 0px 5px 0px;
+/*LOGIN*/
+
+.register{
+	background-color: #348899;
+	color: #f2ebc7;
 	border-radius: 5px;
-	background-color: #99b3ff;
-	border: 0;
-}
-
-a{
-	text-decoration: none;
-	color: inherit;
-	font-size: 14px;
-	padding: 5px;
-	margin: 5px 0px 5px 0px;
-	border-radius: 5px;
-	background-color: #99b3ff;
-	border: 0;
-}
-
-
-.registration{
-	border: 3px solid #002080;
-	border-radius: 5px;
-	padding: 5px;
 }
 
 .login{
-	border: 3px solid #002080;
+	background-color: #348899;
+	color: #f2ebc7;
 	border-radius: 5px;
 	padding: 5px;
 }
 
-.registration, .login{
+.register, .login{
 	display: inline-block;
     width: 40%;
     vertical-align: top;
     margin-right: 20px;
+    min-height: 35%;
+}
+
+/*REGISTRATION*/
+
+.registration{
+	background-color: #348899;
+	color: #f2ebc7;
+	margin: 1% 25%;
+	padding: 10px 50px 15px 20px;
+	border-radius: 5px;
+}
+
+.registration h3{
+	color: #f2ebc7;
+}
+
+.registration label{
+	margin-bottom: 5px;
+	display: block;
+}
+
+#pwd {
+	width: 50%;
+}
+
+#conf_pwd {
+	width: 50%;
+}
+
+#phone{
+	width: 40%;
 }
 
 
-.flashes{
-	list-style: none;
-	color: #8F002A;
-	font-size: 14px;
-	padding-left: 0px;
+
+/*NEW SCHEDULE*/
+
+.new_task{
+	margin: 5px 20px 5px 10px;
+	background-color: #348899;
+	color: #f2ebc7;
+	border-radius: 5px;
+	width: 60%;
 }
+
+.form input{
+	width: 95%;
+	font-size: 0.9em;
+	border-radius: 5px;
+}
+
+.new_task select{
+	width: 30%;
+	font-size: 1em;
+	border-radius: 5px;
+}
+
+.new_location{
+	margin: 5px 0px 5px 10px;
+	background-color: #348899;
+	color: #f2ebc7;
+	border-radius: 5px;
+	width: 60%;
+}
+
+.new_location input{
+	width: 60%;
+	font-size: 0.9em;
+}
+
+.new_location label{
+	display: block;
+}
+
+.datetime label{
+	display: inline-block;
+	width: 25%;
+	margin-bottom: 10px;
+}
+
+.form{
+	padding: 0px 50px 15px 20px;
+}
+
+.city_st label{
+	display: inline-block;
+	width: 30%;
+}
+
+#city{
+	width: 95%;
+}
+
+#state{
+	width: 15%;
+}
+
+#zip{
+	width: 15%;
+}
+
+
+/*JQUERY - NEW_SCHEDULE.HTML*/
 
 .collapse_on{
-	background-color: #f9edeb;
-	color: #2B3856;
-	width: 79%;
-	margin: 0% 8% 0% 11%;
-	padding: 1% 1%;
+	background-color: #348899;
+	color: #f2ebc7;
+	border-radius: 5px;
+	width: 60%;
 }
 
-.collapse_off{
-	background-color: #Ebe3e0;
-	border-radius: 10px 10px 0px 0px;
-	
+.collapse_on h3{
+	color: #f2ebc7;
+	padding: 15px 10px;
 }
 
 .hidden{
