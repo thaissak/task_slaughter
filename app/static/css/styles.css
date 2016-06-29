@@ -44,6 +44,7 @@ a{
 	border: 0;
 }
 
+
 .registration{
 	border: 3px solid #002080;
 	border-radius: 5px;
@@ -69,4 +70,22 @@ a{
 	color: #8F002A;
 	font-size: 14px;
 	padding-left: 0px;
+}
+
+.collapse_on{
+	background-color: #f9edeb;
+	color: #2B3856;
+	width: 79%;
+	margin: 0% 8% 0% 11%;
+	padding: 1% 1%;
+}
+
+.collapse_off{
+	background-color: #Ebe3e0;
+	border-radius: 10px 10px 0px 0px;
+	
+}
+
+.hidden{
+	display: none;
 }

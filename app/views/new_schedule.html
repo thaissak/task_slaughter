@@ -2,18 +2,113 @@
   <head>
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
     <title>Task Slaughter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+ //    $(document).ready(function(){
+ //    	console.log("ok");
+	//     $(".collapse_on").click(function(){
+	// 		$(this).siblings().toggle(function(){
+	// 			if($(this).siblings().attr("class")=="collapse_on"){
+	// 				console.log($(this).siblings().attr("class"));
+	// 				$(this).siblings().addClass("collapse_off");
+	// 				$(this).css({"background-color": "#Ebe3e0", "border-radius": "0px 0px 10px 10px", "padding": "1% 1% 1% 2%"});
+	// 			}
+	// 			else{
+	// 				$(this).siblings().removeClass("collapse_off");
+	// 			}
+	// 		});
+	// 	});
+	// });
+
+    </script>
   </head>
   <body>
     <header>
     	<h1>Task Slaughter</h1>	
+    	<a href="/task_slaughter/logout">Logout</a> 
     </header>
 
     <section>
-    	<form>
-    		<h3>Locations</h3>
+    {% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class="flashes">
+  				{% for message in messages %}
+    				<li>{{message}}</li>
+  				{% endfor %}
+  			</ul>
+		{% endif %}
+    {% endwith %}
+    	<form action="/task_slaughter/schedule_process" method="post">
+    		<input type="hidden" name="user_id" value="{{ session['user_id'] }}"></input>
+	    		
+	    		<!-- <div class="collapse_on"> -->
+	    			<h3>Tasks</h3>
+	    		<!-- </div> -->
 
-    		<h3>Tasks</h3>
-    		
+	    		<!-- <div class="hidden"> -->
+		    		<label>
+			    		Name:<br>
+			    		<input type="text" name="task_name"></input>
+			    	</label>
+			    	<label>
+			    		Description:<br>
+			    		<input type="text" name="description"></input>
+			    	</label>
+			    	<label>
+			    		Priority:<br>
+			    		<select name="priority">
+			    			<option value="">Select one</option>
+			    			<option value="Urgent">Urgent</option>
+			    			<option value="Important">Important</option>
+			    			<option value="Medium">Medium</option>
+			    			<option value="Low">Low</option>
+			    		</select>
+			    	</label>
+			    	<label>
+			    		Date:<br>
+			    		<input type="date" name="date"></input>
+			    	</label>
+			    	<label>
+			    		Time:<br>
+			    		<input type="time" name="time"></input>
+			    	</label>
+
+		    		<h4>Choose an existing location:</h4>
+		    		<select name="location_id">
+		    			<option>Select one</option>
+		    			{% for location in locations %}
+		    				<option  value="{{ location['id'] }}">{{ location['location_name'] }}</option>
+		    			{% endfor %}
+			    	</select>
+		    	</div>
+
+		    	<!-- <div class="collapse_on"> -->
+		    		<h4>Create a new location:</h4>
+		    	<!-- </div> -->
+		    	
+	    		<!-- <div class="hidden"> -->
+		    		<label>
+		    			Name:<br>
+		    			<input type="text" name="location_name"></input>
+		    		</label>
+		    		<label>
+		    			Address:<br>
+		    			<input type="text" name="street_name"></input>
+		    		</label>
+		    		<label>
+		    			City:<br>
+		    			<input type="text" name="city"></input>
+		    		</label>
+		    		<label>
+		    			State:<br>
+		    			<input type="text" name="state"></input>
+		    		</label>
+		    		<label>
+		    			Zipcode:<br>
+		    			<input type="text" name="zip_code"></input>
+		    		</label>
+		    		<button type="submit">Add</button>
+	    		<!-- </div> -->
     	</form>
     </section>	
 
