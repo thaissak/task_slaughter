@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Task Slaughter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	    $(document).ready(function(){
+		    $(".collapse_on").click(function(){
+				$(this).siblings('div').toggle();
+			});
+		});
+
+    </script>
+  </head>
+  <body>
+    <header>
+       <h1>Task Slaughter</h1>    
+       <a id="link_home" href="/task_slaughter/dashboard">Home</a>
+       <a  href="/task_slaughter/logout">Logout</a>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class="flashes">
+  				{% for message in messages %}
+    				<li>{{message}}</li>
+  				{% endfor %}
+  			</ul>
+		{% endif %}
+    {% endwith %}
+    	<form id="form_new" action="/task_slaughter/update_process" method="post">
+    		<input type="hidden" name="user_id" value="{{ session['user_id'] }}"></input>
+	    	<section class="new_task">	
+	    		<div class="collapse_on">
+	    			<h3>Task</h3>
+	    		</div>
+
+	    		<div class="hidden form">
+		    		<label>
+			    		Name:<br>
+			    		<input type="text" name="task_name" value="{{ task['task_name'] }}"></input>
+			    	</label>
+			    	<label>
+			    		Description:<br>
+			    		<input type="text" name="description" value="{{ task['description'] }}"></input>
+			    	</label>
+			    	<label>
+			    		Priority:<br>
+			    		<select name="priority">
+			    			<option value="" value="{{ task['priority'] }}">{{ task['priority'] }}</option>
+			    			{% if task['priority'] != 'Urgent' %}
+			    			<option value="Urgent">Urgent</option>
+			    			{% endif %}
+			    			{% if task['priority'] != 'Important' %}
+			    			<option value="Important">Important</option>
+			    			{% endif %}
+			    			{% if task['priority'] != 'Medium' %}
+			    			<option value="Medium">Medium</option>
+			    			{% endif %}
+			    			{% if task['priority'] != 'Low' %}
+			    			<option value="Low">Low</option>
+			    			{% endif %}
+			    		</select>
+			    	</label>
+			    	<div class="datetime">
+				    	<label>
+				    		Date:<br>
+				    		<input type="date" name="date" value="{{ task['date'] }}"></input>
+				    	</label>
+				    	<label>
+				    		Time:<br>
+				    		<input type="time" name="time" value="{{ task['time'] }}"></input>
+				    	</label>
+			    	</div>
+		    		<label>
+			    		Choose an existing location:<br>
+			    	</label>
+		    		<select name="location_id">
+		    			<option>Select one</option>
+		    				<option value="{{ task['location_name'] }}">{{ task['location_name'] }}</option>
+		    			{% for location in locations %}
+		    				<option  value="{{ location['id'] }}">{{ location['location_name'] }}</option>
+		    			{% endfor %}
+			    	</select><br>
+			    	<button type="submit">Add Task</button>
+		    	</div>
+		    </section>
+
+		    <section class="new_location">
+		    	<div class="collapse_on">
+		    		<h3>Location</h3>
+		    	</div>
+		    	
+	    		<div class="hidden form">
+		    		<label>
+		    			Name:<br>
+		    			<input type="text" name="location_name"></input>
+		    		</label>
+		    		<label>
+		    			Address:<br>
+		    			<input type="text" name="street_name"></input>
+		    		</label>
+		    		<div class="city_st">
+			    		<label>
+			    			City:<br>
+			    			<input id="city" type="text" name="city"></input>
+			    		</label>
+			    		<label>
+			    			State:<br>
+			    			<input id="state" type="text" name="state"></input>
+			    		</label>
+		    		</div>
+		    		<label>
+		    			Zipcode:<br>
+		    			<input id="zip" type="text" name="zip_code"></input>
+		    		</label>
+		    		<button type="submit">Add Location</button>
+	    		</div>
+	    	</section>
+    	</form>
+
+  </body>
+</html>

@@ -22,6 +22,11 @@ class Schedule(Model):
         data = {'id': user_id}
         return self.db.query_db(query, data)
 
+    def get_task_by_id(self, task_id):
+        query = "SELECT * from tasks where id = :id limit 1"
+        data = {'id': task_id}
+        return self.db.get_one(query, data)
+
     def get_curr_tasks(self, user_id):
     	query = "select tasks.id, tasks.date, date_format(tasks.time,'%h:%i %p') as time, tasks.task_name, tasks.status, locations.location_name, locations.street_name, locations.zip_code, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE() order by time DESC"
     	data = {'id': user_id}
@@ -46,6 +51,16 @@ class Schedule(Model):
         query = "insert into tasks (task_name, description, priority, date, time, user_id, location_id, notification, status) values (:task_name, :description, :priority, :date, :time, :user_id, :location_id, :notification, :status)"
         data = {'task_name':new_task['task_name'], 'description':new_task['description'], 'priority':new_task['priority'], 'date':new_task['date'],'time':new_task['time'], 'user_id':new_task['user_id'], 'location_id':new_task['location_id'], 'notification':new_task['notification'], 'status':new_task['status']}
         return self.db.query_db(query, data)
+
+    def update_task(self, info_task):
+        query = "insert into tasks (task_name, description, priority, date, time, user_id, location_id, notification, status) values (:task_name, :description, :priority, :date, :time, :user_id, :location_id, :notification, :status)"
+        data = {'task_name':info_task['task_name'], 'description':info_task['description'], 'priority':info_task['priority'], 'date':info_task['date'],'time':info_task['time'], 'user_id':info_task['user_id'], 'location_id':info_task['location_id'], 'notification':info_task['notification'], 'status':info_task['status']}
+        return self.db.query_db(query, data)   
+
+    def get_future_tasks(self, user_id):
+        query = "SELECT tasks.task_name, tasks.description, date_format(tasks.date, '%b %d, %Y') as date, date_format(tasks.time,'%h:%i %p') as time, locations.location_name, locations.street_name, locations.city, locations.state, locations.zip_code FROM tasks JOIN locations ON tasks.location_id = locations.id JOIN users on tasks.user_id = users.id WHERE users.id=:id and tasks.date >= CURDATE() ORDER BY tasks.date DESC, tasks.time DESC"
+        data = {'id' : user_id}
+        return self.db.query_db(query, data) 
 
     def location_validation(self, new_location):
         errors = []
@@ -74,6 +89,8 @@ class Schedule(Model):
 	        return {"status": False, "errors": errors}
 	    else:
 	        return { "status": True}
+
+
 
     # def twilio(self, user_id):
     #    query="SELECT phone from users where id = :id"

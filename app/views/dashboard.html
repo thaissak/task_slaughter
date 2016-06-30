@@ -51,16 +51,11 @@
                                         '<p>'+address+'</p>' +
                                        '</div>';
 
-
                         google.maps.event.addListener(marker, 'click', (function(marker, content, address, city) {
                             return function() {
-                              
-
                                 getWeather(city, infowindow);
-
-
-                              infowindow.setContent(content);
-                              infowindow.open(map, marker);
+                                infowindow.setContent(content);
+                                infowindow.open(map, marker);
                             }
                         })(marker, content, address, city));
                     } else {
@@ -79,8 +74,9 @@
         <div class="links">
            <a href="/task_slaughter/new_schedule">Add Task</a>
            <a href="/task_slaughter/new_schedule">Add Location</a>
+           <a href="/task_slaughter/future_tasks">Future Tasks</a>
        </div>
-     <!--   <div id="weather"></div>  -->
+     
     </header>
     
     <section id="dashboard">
@@ -98,8 +94,8 @@
                         <input type="hidden"  name="task_id" value="{{ task['id'] }}"></input>
                         <button type="submit" name="sms">SMS</button>
                     </form>
-                    <p class="task_desc">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }} ({{ task['status'] }})</p>
-                    <form class="action" action="/task_slaughter/dashboard/task_update" method="post">
+                    <a class="task_desc" href="/task_slaughter/{{ task['id'] }}/edit_schedule">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }} ({{ task['status'] }})</a>
+                    <form class="action" action="/task_slaughter/dashboard/status_update" method="post">
                         {% if task['status'] == 'Pending' %}
                             <button type="submit" name="button" value="done">Done</button>
                             <button type="submit" name="button" value="cancel">Cancel</button>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Slaughter</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+</head>
+<body>
+
+    <header>
+       <h1>Task Slaughter</h1>    
+           <a id="link_home" href="/task_slaughter/dashboard">Home</a>
+           <a  href="/task_slaughter/logout">Logout</a>
+        <div class="links">
+           <a href="/task_slaughter/new_schedule">Add Task</a>
+           <a href="/task_slaughter/new_schedule">Add Location</a>
+       </div>
+     
+    </header>
+    <section >
+        <h3 id="all_tasks_h3">These are all the pending tasks you have scheduled so far:</h3>
+        {% for task in all_tasks %}
+            <div class="all_tasks">
+                <h4>{{ task['task_name'] }} @ {{ task['location_name'] }}</h4>
+                <p>Date: {{ task['date'] }} - Time: {{ task['time'] }} </p>
+                <p>Description: {{ task['description'] }}</p>
+                <p>Address: {{ task['street_name'] }}, {{ task['city'] }} - {{task['state'] }} ({{ task['zip_code']}})</p>
+            </div>
+            
+        {% endfor %}
+    </section>
+</body>
+</html>

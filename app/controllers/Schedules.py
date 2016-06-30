@@ -23,7 +23,16 @@ class Schedules(Controller):
         locations = self.models['Schedule'].get_locations(session['user_id'])
         return self.load_view('new_schedule.html', locations=locations)
 
-    def task_update(self):
+    def edit_schedule(self, id):
+        task = self.models['Schedule'].get_task_by_id(id)
+        # add query for locations
+        return self.load_view('edit_schedule.html', task=task)
+
+    def display_all(self):
+        all_tasks = self.models['Schedule'].get_future_tasks(session['user_id'])
+        return self.load_view('all_tasks.html', all_tasks = all_tasks)
+
+    def task_st_update(self):
         if request.form['button'] == 'done':
             print "got in"
             self.models['Schedule'].update_task_done(request.form['task_id'])
@@ -63,6 +72,36 @@ class Schedules(Controller):
                 for error in location_validation['errors']:
                     flash(error)
                 return redirect('/task_slaughter/new_schedule')
+
+    def update_schedule(self):
+        if request.form['location_id']:
+            edit_task = {'task_name':request.form['task_name'], 'description':request.form['description'], 'priority':request.form['priority'], 'date':request.form['date'], 'time':request.form['time'], 'user_id':request.form['user_id'], 'location_id':request.form['location_id'], 'notification':'off', 'status':'Pending'}
+            task_validation = self.models['Schedule'].task_validation(edit_task)
+            if task_validation['status']:                
+                self.models['Schedule'].update_task(edit_task)
+                return redirect('/task_slaughter/dashboard')
+            else:
+                for error in task_validation['errors']:
+                    flash(error)
+                return redirect('/task_slaughter/edit_schedule')
+        else:
+            new_location = {'location_name':request.form['location_name'], 'street_name':request.form['street_name'], 'city':request.form['city'], 'state':request.form['state'], 'zip_code':request.form['zip_code'], 'user_id':request.form['user_id']}
+            location_validation = self.models['Schedule'].location_validation(new_location)
+            if location_validation['status']:
+                location_id = self.models['Schedule'].insert_location(new_location)
+                edit_task = {'task_name':request.form['task_name'], 'description':request.form['description'], 'priority':request.form['priority'], 'date':request.form['date'], 'time':request.form['time'], 'user_id':request.form['user_id'], 'location_id':location_id, 'notification':'off', 'status':'Pending'}
+                task_validation = self.models['Schedule'].task_validation(edit_task)
+                if task_validation['status']:
+                    self.models['Schedule'].update_task(edit_task)
+                    return redirect('/task_slaughter/dashboard')
+                else:
+                    for error in task_validation['errors']:
+                        flash(error)
+                    return redirect('/task_slaughter/edit_schedule')
+            else:
+                for error in location_validation['errors']:
+                    flash(error)
+                return redirect('/task_slaughter/edit_schedule')
     
     # def twilio_text(self):
     #     print request.form

@@ -115,6 +115,12 @@ header a{
 	margin-left: 24%;
 }
 
+/*ABOUT*/
+#about{
+	color: #348899;
+	margin: 0px 60px 40px 60px;
+
+}
 
 
 /*LOGIN*/
@@ -132,6 +138,18 @@ header a{
 	margin-left: 4%;
 }
 
+.login h3{
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.register h3, .register p{
+	margin-top: 30px;
+	margin-left: 18px;
+}
+.register a{
+	margin-left: 15px;
+}
 
 .register, .login{
 	display: inline-block;
@@ -245,7 +263,12 @@ ul p{
 	padding: 1%;
 }
 
-#dashboard h3, p{
+#dashboard h3{
+	color: #173B42;
+	margin-left: 5px;
+}
+
+#dashboard p{
 	color: #173B42;
 	margin-left: 5px;
 }
@@ -358,6 +381,37 @@ ul p{
 	margin-left: 28%;
 }
 
+/*ALL TASKS*/
+
+.all_tasks{
+	background-color: #348899;
+	color: #fffaf0; 
+	border-radius: 5px;
+	width: 45%;
+	margin-left: 24%;
+    margin-top: 2%;
+    padding: 1% 2%;
+}
+
+#all_tasks_h3{
+	color: #348899;
+	text-align:left;
+	margin-left: 24%;
+    margin-top: 4%;
+    line-height: 0;
+    letter-spacing: 1px;
+}
+
+.all_tasks h4{
+	letter-spacing: 1px;
+	margin-bottom: 8px;
+	margin-top: 5px;
+}
+
+.all_tasks p{
+	margin-top: 1px;
+	margin-bottom: 8px;
+}
 
 /*JQUERY - NEW_SCHEDULE.HTML*/
 
