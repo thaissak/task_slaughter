@@ -1,5 +1,6 @@
 from system.core.controller import *
 from time import strftime
+from twilio.rest import TwilioRestClient
 
 class Schedules(Controller):
     def __init__(self, action):
@@ -23,11 +24,6 @@ class Schedules(Controller):
         return self.load_view('new_schedule.html', locations=locations)
 
     def task_update(self):
-        print "haha"
-        print "haha"
-        print "haha"
-        print "haha"
-        print "haha"
         if request.form['button'] == 'done':
             print "got in"
             self.models['Schedule'].update_task_done(request.form['task_id'])
@@ -67,4 +63,27 @@ class Schedules(Controller):
                 for error in location_validation['errors']:
                     flash(error)
                 return redirect('/task_slaughter/new_schedule')
+    
+    # def twilio_text(self):
+    #     print request.form
+    #     print 'haha'
+    #     print 'haha'
+    #     print 'haha'
+    #     print 'haha'
+    #     print 'haha'
+    #     print 'haha'
+    #     phone = self.models['Schedule'].twilio(session['user_id'])
+    #     text_body = self.models['Schedule'].twilio_body(request.form['task_id'])
+    #     ACCOUNT_SID = "AC3490836a9e230b983987438e82c9ba7d" 
+    #     AUTH_TOKEN = "dcd9dd3a87976054f2f50d9e3477b3f0" 
+    #     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
+    #     client.messages.create(
+    #         to= phone,
+    #         from_="+16506677014",
+    #         body=text_body
+    #     )
+    #     print "INSIDE TWILIO TEXT METHOD"
+    #     print phone
+    #     print text_body
+    #     return redirect ('/task_slaughter/dashboard')
 

@@ -4,12 +4,12 @@
 /*COLORS:
 app name - #962d3e (red/pink)
 buttons background - #348899 (blue)
-buttons text color - #f2ebc7 (cream/white)
+buttons text color - #fffaf0 (cream/white)
 titles - #343642 (grey/blue)
 plain text - black
 border color - #962d3e (red/pink)
 background color (header) - #979C9C(grey)
-background color (body) - #f2ebc7 (cream/white)
+background color (body) - #fffaf0 (cream/white)
 create tasks/location - #348899 (blue)*/
 
 /*GENERAL*/ 
@@ -21,12 +21,19 @@ body{
 	background-color: #fffaf0
 }
 
+form{
+	margin-bottom: 0;
+}
+
 h3{
 	font-size: 1.3em;
 }
 
 button{
-	background-color: #f2ebc7;
+	background-color: #173B42;
+	color: #fffaf0;
+	border-radius: 5px;
+	border: 0;
 }
 
 a{
@@ -100,23 +107,24 @@ header a{
 #weather h4{
 	margin: 0px;
 	text-align: center;
-	color: #f2ebc7;
+	color: #173B42;
 }
 
 /*LOGIN*/
 
 .register{
 	background-color: #348899;
-	color: #f2ebc7;
+	color: #fffaf0;
 	border-radius: 5px;
 }
 
 .login{
 	background-color: #348899;
-	color: #f2ebc7;
+	color: #fffaf0;
 	border-radius: 5px;
 	padding: 5px;
 }
+
 
 .register, .login{
 	display: inline-block;
@@ -130,14 +138,14 @@ header a{
 
 .registration{
 	background-color: #348899;
-	color: #f2ebc7;
+	color: #fffaf0;
 	margin: 1% 25%;
 	padding: 10px 50px 15px 20px;
 	border-radius: 5px;
 }
 
 .registration h3{
-	color: #f2ebc7;
+	color: #fffaf0;
 }
 
 .registration label{
@@ -157,6 +165,86 @@ header a{
 	width: 40%;
 }
 
+/*DASHBOARD*/
+
+table{
+	width: 100%;
+	padding-top: 1%;
+}
+
+ul li{
+	list-style: none;
+}
+
+ul p{
+	display: inline-block;
+}
+
+.sms{
+	display: inline-block;
+	margin-left: 2%;
+}
+
+.task_desc{
+	font-size: 0.9em;
+	margin-bottom: 2px;
+	padding: 1% 0% 1% 0%;
+	color: #fffaf0;
+	width: 60%;
+}
+
+.action{
+	display: inline-block;
+}
+
+.action button{
+	display: inline;
+	margin-right: 5px;
+	
+}
+
+.action form{
+	display: inline-block;
+}
+
+.action form{
+	display: inline-block;
+	width: 100%;
+}
+
+#dashboard{
+	width: 100%;
+	padding: 1%;
+}
+
+#dashboard h3, p{
+	color: #173B42;
+	margin-left: 5px;
+}
+
+
+#dashboard ul{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#tasks_back{
+	min-height: 500px;
+	background-color: #348899;
+	border-radius: 5px;
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#map{
+	display: inline-block;
+	vertical-align: top;
+	width: 59%; 
+	min-height: 500px;
+
+}
 
 
 /*NEW SCHEDULE*/
@@ -164,7 +252,7 @@ header a{
 .new_task{
 	margin: 5px 20px 5px 10px;
 	background-color: #348899;
-	color: #f2ebc7;
+	color: #fffaf0;
 	border-radius: 5px;
 	width: 60%;
 }
@@ -185,7 +273,7 @@ header a{
 .new_location{
 	margin: 5px 0px 5px 10px;
 	background-color: #348899;
-	color: #f2ebc7;
+	color: #fffaf0;
 	border-radius: 5px;
 	width: 60%;
 }
@@ -231,13 +319,13 @@ header a{
 
 .collapse_on{
 	background-color: #348899;
-	color: #f2ebc7;
+	color: #fffaf0;
 	border-radius: 5px;
 	width: 60%;
 }
 
 .collapse_on h3{
-	color: #f2ebc7;
+	color: #fffaf0;
 	padding: 15px 10px;
 }
 

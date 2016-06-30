@@ -50,6 +50,9 @@ class Users(Controller):
         session['user_id'] = user['id']
         return redirect('/task_slaughter/dashboard')
 
+   
+        
+
 
 
 

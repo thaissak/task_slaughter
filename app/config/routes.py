@@ -21,6 +21,8 @@ routes ['POST'] ['/task_slaughter/schedule_process'] = 'Schedules#insert_schedul
 
 routes ['POST'] ['/task_slaughter/dashboard/task_update'] = 'Schedules#task_update'
 
+# routes ['POST'] ['/task_slaughter/dashboard/task_sms'] = 'Schedules#twilio_text'
+
 
 
 

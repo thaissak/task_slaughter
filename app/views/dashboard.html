@@ -3,27 +3,75 @@
     <title>Task Slaughter</title>
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPyRbu0nPZP5-43ZI2c3ro4UA-Y6xGpas&callback=initMap"
+  type="text/javascript"></script>
    	<script type="text/javascript">
-    // REMEMBER TO CHANGE THE FORM
-   		// $(document).ready(function() {
-     //        $('form').submit(function() {
-     //            var name = $('#location').val();
-     //            $.get('http://api.openweathermap.org/data/2.5/weather?q=' +name+ '&&appid=36279e2d034cc5833fe7086b5d812509', function(res){
-     //                var weather_str="";
-     //                var weather_desc=res['weather'][0]['description'];
-     //                // weather_str+="<h4>"+res['name']+"</h4>";
-     //                farenheit= (res['main']['temp'])* (9/5)-459.67;
-     //                weather_str+='<h4>' + Math.round(farenheit)+ '&#8457; </h4>';
-     //                var weather_img=res['weather'][0]['icon']
-     //                weather_str += "<img src='http://openweathermap.org/img/w/" + weather_img + ".png'/>";
-     //                // weather_str+="<h5> Description: "+weather_desc+"</h5>";
-     //                $('#weather').html(weather_str);
-     //            },'json');
-     //            return false;
-     //        });
-     //     });
+   		
+        function getWeather(location, infowindow){
+            $.get('http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&appid=36279e2d034cc5833fe7086b5d812509&units=imperial', function(res){
+                console.log(res);
+                var weather_str="";
+                var weather_desc=res['weather'][0]['description'];
+                farenheit= res['main']['temp'];
+                weather_str+='<h4>' + Math.round(farenheit)+ '&#8457; </h4>';
+                var weather_img=res['weather'][0]['icon']
+                weather_str += "<img src='http://openweathermap.org/img/w/" + weather_img + ".png'/>";
+                infowindow.setContent(infowindow.content+'<div id="weather">'+ 
+                    weather_str+'</div>');
+            },'json');
+        }
+        
+
+        function initMap(){
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 10,
+              center: new google.maps.LatLng(-33.92, 151.25),
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+            var tasks = $('ul').children('li').each(function (){
+                console.log($(this).children('#address').val());
+                var address = $(this).children('[name="address"]').val();
+                var loc_name = $(this).children('[name="loc_name"]').val();
+                var city = $(this).children('[name="city"]').val();
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        resultsMap.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                          map: resultsMap,
+                          position: results[0].geometry.location
+                        });
+                        var infowindow = new google.maps.InfoWindow();
+                        var content = '<div id="map_content">' +
+                                        '<h4>'+loc_name+'</h4>' +
+                                        '<p>'+address+'</p>' +
+                                       '</div>';
+
+
+                        google.maps.event.addListener(marker, 'click', (function(marker, content, address, city) {
+                            return function() {
+                              
+
+                                getWeather(city, infowindow);
+
+
+                              infowindow.setContent(content);
+                              infowindow.open(map, marker);
+                            }
+                        })(marker, content, address, city));
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            });
+        }
    	</script>
   </head>
+
   <body>
     <header>
        <h1>Task Slaughter</h1>    
@@ -35,38 +83,37 @@
      <!--   <div id="weather"></div>  -->
     </header>
     
-    <section>
+    <section id="dashboard">
     	<h3>Hello {{ user['first_name'] }}!</h3>
     	<p>Here's what you have scheduled for today ({{ curr_date }}):</p>
-    	 <table>
-            <tbody>
-                {% for task in tasks %}
-                    <tr>
-                        <td id="task_time">{{ task['time'] }} -</td>
-                        <td id="task_name">{{ task['task_name'] }} -</td>
-                        <td id="task_status">{{ task['status'] }} -</td>
-                        <td id="location_name">{{ task['location_name'] }}</td>
-                        <input type="hidden" value="{{ task['status']}}"></input>
-                        <td id="action">
-                            <form action="/task_slaughter/dashboard/task_update" method="post">
-                            {% if task['status'] == 'Pending' %}
-                            	<button type="submit" name="button" value="done">Done!</button>
-                            	<button type="submit" name="button" value="cancel">Cancel</button>
-                            {% endif %}
-                            	<input type="hidden" name="task_id" value="{{ task['id'] }}"></input>
-                            
-                            </form>
-                        </td>   
-                    </tr>
-                {% endfor %}           
-            </tbody>
-         </table>
-    </section>
+    	<div id="tasks_back">
+            <ul>
+            {% for task in tasks %}
+                
+                <li>
+                    <input type="hidden" name="address" value="{{ task['street_name'] }}, {{ task['zip_code'] }}"></input>
+                    <input type="hidden" name="loc_name" value="{{ task['location_name'] }}"></input>
+                    <input type="hidden" name="city" value="{{ task['city'] }}"></input>
+                    <form class="sms" action="/task_slaughter/dashboard/task_sms" method="post">
+                        <input type="hidden"  name="task_id" value="{{ task['id'] }}"></input>
+                        <button type="submit" name="sms">SMS</button>
+                    </form>
+                    <p class="task_desc">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }} ({{ task['status'] }})</p>
+                    <form class="action" action="/task_slaughter/dashboard/task_update" method="post">
+                        {% if task['status'] == 'Pending' %}
+                            <button type="submit" name="button" value="done">Done!</button>
+                            <button type="submit" name="button" value="cancel">Cancel</button>
+                        {% endif %}
+                        <input type="hidden" name="task_id" value="{{ task['id'] }}"></input>
+                    </form>   
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
    
-    <section id="map">
-        <!-- LOAD GOOGLE MAP HERE! -->
-    </section>
+        <div id="map"></div>
 
+     </section>
 
   </body>
 </html>

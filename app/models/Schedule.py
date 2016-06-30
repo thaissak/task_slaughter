@@ -23,7 +23,7 @@ class Schedule(Model):
         return self.db.query_db(query, data)
 
     def get_curr_tasks(self, user_id):
-    	query = "select tasks.id, tasks.date, tasks.status, date_format(tasks.time,'%k:%i %p') as time, tasks.task_name, tasks.status, locations.location_name, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE() order by time DESC"
+    	query = "select tasks.id, tasks.date, date_format(tasks.time,'%k:%i %p') as time, tasks.task_name, tasks.status, locations.location_name, locations.street_name, locations.zip_code, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE() order by time DESC"
     	data = {'id': user_id}
     	return self.db.query_db(query, data)
 
@@ -74,4 +74,27 @@ class Schedule(Model):
 	        return {"status": False, "errors": errors}
 	    else:
 	        return { "status": True}
+
+    # def twilio(self, user_id):
+    #    query="SELECT phone from users where id = :id"
+    #    data={'id': user_id}
+    #    print self.db.query_db(query, data)
+    #    print "testing the twilio method"
+    #    print "testing the twilio method"
+    #    print "testing the twilio method"
+    #    print "testing the twilio method"
+    #    print "testing the twilio method"
+    #    return self.db.query_db(query, data)
+
+    # def twilio_body(self, task_id):
+    #    query="SELECT task_name, description, date, time FROM tasks WHERE id = :id"
+    #    data = {'id': task_id}
+    #    print self.db.query_db(query, data)
+    #    print "testing the twilio body method"
+    #    print "testing the twilio body method"
+    #    print "testing the twilio body method"
+    #    print "testing the twilio body method"
+    #    print "testing the twilio body method"
+    #    print "testing the twilio body method"
+    #    return self.db.query_db(query, data)
    

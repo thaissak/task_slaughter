@@ -49,3 +49,5 @@ class User(Model):
 
     def pwd_validation(self, password, pwd_validate):
         return self.bcrypt.check_password_hash(password, pwd_validate)
+
+    
