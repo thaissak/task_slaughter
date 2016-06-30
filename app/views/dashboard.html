@@ -86,13 +86,13 @@
             <ul>
             {% for task in tasks %}
                 
-                <li>
+                <li class="task_dash">
                     <input type="hidden" name="address" value="{{ task['street_name'] }}, {{ task['zip_code'] }}"></input>
                     <input type="hidden" name="loc_name" value="{{ task['location_name'] }}"></input>
                     <input type="hidden" name="city" value="{{ task['city'] }}"></input>
                     <form class="sms" action="/task_slaughter/dashboard/task_sms" method="post">
                         <input type="hidden"  name="task_id" value="{{ task['id'] }}"></input>
-                        <button type="submit" name="sms">SMS</button>
+                        <button id="btn_sms" type="submit" name="sms">SMS</button>
                     </form>
                     <a class="task_desc" href="/task_slaughter/{{ task['id'] }}/edit_schedule">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }} ({{ task['status'] }})</a>
                     <form class="action" action="/task_slaughter/dashboard/status_update" method="post">

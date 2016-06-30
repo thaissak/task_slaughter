@@ -58,7 +58,7 @@ class Schedule(Model):
         return self.db.query_db(query, data)   
 
     def get_future_tasks(self, user_id):
-        query = "SELECT tasks.task_name, tasks.description, date_format(tasks.date, '%b %d, %Y') as date, date_format(tasks.time,'%h:%i %p') as time, locations.location_name, locations.street_name, locations.city, locations.state, locations.zip_code FROM tasks JOIN locations ON tasks.location_id = locations.id JOIN users on tasks.user_id = users.id WHERE users.id=:id and tasks.date >= CURDATE() ORDER BY tasks.date DESC, tasks.time DESC"
+        query = "SELECT tasks.id, tasks.task_name, tasks.description, date_format(tasks.date, '%b %d, %Y') as date, date_format(tasks.time,'%h:%i %p') as time, locations.location_name, locations.street_name, locations.city, locations.state, locations.zip_code FROM tasks JOIN locations ON tasks.location_id = locations.id JOIN users on tasks.user_id = users.id WHERE users.id=:id and tasks.date >= CURDATE() ORDER BY tasks.date DESC, tasks.time DESC"
         data = {'id' : user_id}
         return self.db.query_db(query, data) 
 

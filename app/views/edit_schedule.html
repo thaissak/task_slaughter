@@ -17,6 +17,9 @@
        <h1>Task Slaughter</h1>    
        <a id="link_home" href="/task_slaughter/dashboard">Home</a>
        <a  href="/task_slaughter/logout">Logout</a>
+       <div class="links">
+           <a href="/task_slaughter/future_tasks">Future Tasks</a>
+       </div>
     </header>
 
     {% with messages = get_flashed_messages() %}
@@ -65,7 +68,7 @@
 			    	<div class="datetime">
 				    	<label>
 				    		Date:<br>
-				    		<input type="date" name="date" value="{{ task['date'] }}"></input>
+				    		<input id="input_date" type="date" name="date" value="{{ task['date'] }}"></input>
 				    	</label>
 				    	<label>
 				    		Time:<br>

@@ -58,6 +58,7 @@ label{
 #btn_login{
 	margin-left: 84%;
 	margin-top: 10px;
+	background-color: #962d3e;
 }
 
 
@@ -120,6 +121,11 @@ header a{
 	color: #348899;
 	margin: 0px 60px 40px 60px;
 
+}
+
+#about h3{
+	line-height: 30px;
+	color: #173B42;
 }
 
 
@@ -231,12 +237,15 @@ ul p{
 	margin-left: 2%;
 }
 
+
+
 .task_desc{
 	font-size: 0.9em;
 	margin-bottom: 2px;
 	padding: 1% 0% 1% 0%;
 	color: #fffaf0;
 	width: 60%;
+	margin-right: 2px;
 }
 
 .action{
@@ -256,6 +265,10 @@ ul p{
 .action form{
 	display: inline-block;
 	width: 100%;
+}
+
+.task_dash{
+	margin-top: 2px;
 }
 
 #dashboard{
@@ -309,6 +322,11 @@ ul p{
 
 }
 
+#btn_sms{
+	background-color: #962d3e;
+	margin-right: 2px;
+}
+
 
 /*NEW SCHEDULE*/
 
@@ -354,6 +372,7 @@ ul p{
 	display: inline-block;
 	width: 25%;
 	margin-bottom: 10px;
+	margin-right: 40px;
 }
 
 .form{
@@ -379,6 +398,11 @@ ul p{
 
 #form_new{
 	margin-left: 28%;
+	margin-top: 4%;
+}
+
+#input_date{
+	width: 130%;
 }
 
 /*ALL TASKS*/
@@ -402,7 +426,7 @@ ul p{
     letter-spacing: 1px;
 }
 
-.all_tasks h4{
+.all_tasks a{
 	letter-spacing: 1px;
 	margin-bottom: 8px;
 	margin-top: 5px;
