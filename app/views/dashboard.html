@@ -75,7 +75,7 @@
   <body>
     <header>
        <h1>Task Slaughter</h1>    
-           <a href="/task_slaughter/logout">Logout</a>
+           <a id="link_logout" href="/task_slaughter/logout">Logout</a>
         <div class="links">
            <a href="/task_slaughter/new_schedule">Add Task</a>
            <a href="/task_slaughter/new_schedule">Add Location</a>
@@ -101,7 +101,7 @@
                     <p class="task_desc">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }} ({{ task['status'] }})</p>
                     <form class="action" action="/task_slaughter/dashboard/task_update" method="post">
                         {% if task['status'] == 'Pending' %}
-                            <button type="submit" name="button" value="done">Done!</button>
+                            <button type="submit" name="button" value="done">Done</button>
                             <button type="submit" name="button" value="cancel">Cancel</button>
                         {% endif %}
                         <input type="hidden" name="task_id" value="{{ task['id'] }}"></input>

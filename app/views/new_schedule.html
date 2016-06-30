@@ -15,8 +15,8 @@
   <body>
     <header>
        <h1>Task Slaughter</h1>    
-       <a id="back_button" href="/task_slaughter/dashboard">Back</a>
-       <a id="back_button" href="/task_slaughter/logout">Logout</a>
+       <a id="link_home" href="/task_slaughter/dashboard">Home</a>
+       <a  href="/task_slaughter/logout">Logout</a>
     </header>
 
     {% with messages = get_flashed_messages() %}
@@ -28,11 +28,11 @@
   			</ul>
 		{% endif %}
     {% endwith %}
-    	<form action="/task_slaughter/schedule_process" method="post">
+    	<form id="form_new" action="/task_slaughter/schedule_process" method="post">
     		<input type="hidden" name="user_id" value="{{ session['user_id'] }}"></input>
 	    	<section class="new_task">	
 	    		<div class="collapse_on">
-	    			<h3>Tasks</h3>
+	    			<h3>Task</h3>
 	    		</div>
 
 	    		<div class="hidden form">
@@ -79,7 +79,7 @@
 
 		    <section class="new_location">
 		    	<div class="collapse_on">
-		    		<h3>Location:</h3>
+		    		<h3>Location</h3>
 		    	</div>
 		    	
 	    		<div class="hidden form">

@@ -23,7 +23,7 @@ class Schedule(Model):
         return self.db.query_db(query, data)
 
     def get_curr_tasks(self, user_id):
-    	query = "select tasks.id, tasks.date, date_format(tasks.time,'%k:%i %p') as time, tasks.task_name, tasks.status, locations.location_name, locations.street_name, locations.zip_code, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE() order by time DESC"
+    	query = "select tasks.id, tasks.date, date_format(tasks.time,'%h:%i %p') as time, tasks.task_name, tasks.status, locations.location_name, locations.street_name, locations.zip_code, locations.city from tasks join locations on tasks.location_id = locations.id where tasks.user_id = :id and tasks.date= CURDATE() order by time DESC"
     	data = {'id': user_id}
     	return self.db.query_db(query, data)
 
