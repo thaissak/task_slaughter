@@ -5,6 +5,7 @@
   </head>
   <body>
     <header>
+       <img src="/static/images/check_mark.png"> 
        <h1>Task Slaughter</h1>    
        <a id="link_home" href="/task_slaughter">Back</a>
     </header>
@@ -20,7 +21,7 @@
       			</ul>
     		{% endif %}
     	{% endwith %}
-    	<form class="form" action="/task_slaughter/registration_process" method="post">
+    	<form class="fofo" action="/task_slaughter/registration_process" method="post">
     		<label>
     			First Name:<br>
     			<input type="text" name="first_name"></input>
@@ -35,7 +36,7 @@
             </label>
             <label>
                 Phone:<br>
-                <input id="phone" type="text" name="phone"></input>
+                <input id="phone" type="text" name="phone" placeholder="1111111111"></input>
             </label>
     		<label>
     			Password:<br>

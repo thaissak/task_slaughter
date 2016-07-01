@@ -44,7 +44,7 @@ button{
 a{
 	color: #173B42;
 	font-size: 1em;
-	padding: 5px;
+	padding-right: 5px;
 	margin: 5px 0px 5px 0px;
 	font-weight: bold;
 	border: 0px;
@@ -82,7 +82,7 @@ h1{
     display: inline-block;
     width: 30%;
     text-align: center;
-    margin-left: 35%;
+    vertical-align: top;
 }
 
 header{
@@ -96,6 +96,12 @@ header a{
     vertical-align: top;
 }
 
+header img{
+	width: 10%;
+	display: inline-block;
+	margin-left: 26%;
+}
+
 .links{
 	display: block;
 	width: 30%;
@@ -106,10 +112,11 @@ header a{
 .links a{
     display: inline-block;
     vertical-align: top;
+    margin-right: 5px;
 }
 
 #link_logout{
-	margin-left: 29%;
+	margin-left: 28%;
 }
 
 #link_home{
@@ -200,7 +207,7 @@ header a{
 
 #weather{
 	display: inline-block;
-	background-color: #348899;
+	background-color: #fffaf0;
 	border-radius: 5px;
     padding: 5px 15px 0px 15px;
 }
@@ -271,6 +278,41 @@ ul p{
 	margin-top: 2px;
 }
 
+.border{
+	border-top: 2px solid #fffaf0;
+	border-radius: 0px 0px 5px 0px ;
+}
+
+.done_st{
+	margin-left: 5px;
+	color: #fffaf0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+
+.done_st img{
+	width: 5%;
+	margin-right: 4px;
+	margin-left: 4px;
+	vertical-align: text-top;
+}
+
+.canc_st{
+	color: silver;
+	margin-left: 10px;
+}
+
+#tasks_back h4{
+	color: #173B42;
+	margin-left: 10px;
+	margin-right: 10px;
+    margin-top: 8px;
+    padding-top: 5px;
+    margin-bottom: 3px;
+}
+
 #dashboard{
 	width: 100%;
 	padding: 1%;
@@ -338,7 +380,7 @@ ul p{
 	width: 60%;
 }
 
-.form input{
+.fofo input{
 	width: 95%;
 	font-size: 0.9em;
 	border-radius: 5px;
@@ -375,7 +417,7 @@ ul p{
 	margin-right: 40px;
 }
 
-.form{
+.fofo{
 	padding: 0px 50px 15px 20px;
 }
 

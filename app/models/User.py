@@ -26,13 +26,13 @@ class User(Model):
 
     def user_validation(self, new_user):
         email_regex = re.compile(r'^[a-za-z0-9\.\+_-]+@[a-za-z0-9\._-]+\.[a-za-z]*$')
-        phone_regex = re.compile(r'^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$')
+        # phone_regex = re.compile(r'^[1-9]{10}$')
         errors = []
 
         if not new_user['first_name'] or not new_user['last_name'] or not new_user['email'] or not new_user['password'] or not new_user['pwd_conf'] or not new_user['phone']:
             errors.append('All fields are mandatory!')
-        if not phone_regex.match (new_user['phone']):
-            errors.append('Phone is invalid!')
+        # if not phone_regex.match (new_user['phone']):
+        #     errors.append('Phone is invalid!')
         if not email_regex.match (new_user['email']):
             errors.append('Invalid e-mail!')
         if len (new_user['password']) < 8:

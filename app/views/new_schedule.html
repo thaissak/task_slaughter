@@ -14,6 +14,7 @@
   </head>
   <body>
     <header>
+       <img src="/static/images/check_mark.png">
        <h1>Task Slaughter</h1>    
        <a id="link_home" href="/task_slaughter/dashboard">Home</a>
        <a  href="/task_slaughter/logout">Logout</a>
@@ -35,7 +36,7 @@
 	    			<h3>Task</h3>
 	    		</div>
 
-	    		<div class="hidden form">
+	    		<div class="hidden fofo">
 		    		<label>
 			    		Name:<br>
 			    		<input type="text" name="task_name"></input>
@@ -68,7 +69,7 @@
 			    		Choose an existing location:<br>
 			    	</label>
 		    		<select name="location_id">
-		    			<option>Select one</option>
+		    			<option value="">Select one</option>
 		    			{% for location in locations %}
 		    				<option  value="{{ location['id'] }}">{{ location['location_name'] }}</option>
 		    			{% endfor %}
@@ -82,7 +83,7 @@
 		    		<h3>Location</h3>
 		    	</div>
 		    	
-	    		<div class="hidden form">
+	    		<div class="hidden fofo">
 		    		<label>
 		    			Name:<br>
 		    			<input type="text" name="location_name"></input>

@@ -5,14 +5,15 @@
   </head>
   <body>
     <header>
-       <h1>Task Slaughter</h1>    
+      <img src="/static/images/check_mark.png">
+      <h1>Task Slaughter</h1>    
     </header>
 
     <div id='about'>
       <h3>Welcome to Task Slaughter! Let us help you organize your life and plan each day out as efficiently as possible. Add tasks, pre-set frequent locations, and get jobs done! Use our interactive map to plan out your day and send reminders to your cellphone to ensure that no appointment or task goes undone. Log in or register below to get started with Task Slaugher!</h3>
     </div>
 
-    <section class="login form">
+    <section class="login fofo">
       <h3>Login</h3>
       {% with messages = get_flashed_messages(category_filter=['login']) %}
         {% if messages %}
@@ -23,7 +24,7 @@
             </ul>
         {% endif %}
       {% endwith %}
-      <form class="form" action="/task_slaughter/login_process" method="post">
+      <form class="fofo" action="/task_slaughter/login_process" method="post">
         <label>
           E-mail:<br>
           <input type="email" name="email"></input>
@@ -36,9 +37,9 @@
       </form>
     </section>
 
-    <section class=" register form">
+    <section class=" register fofo">
     	<h3>Registration</h3>
-      <p>Task Slaughter is here to help you keep all your tasks on track!</p>
+      <p>Task Slaughter is here to help you keep all your tasks on track! Get started now!</p>
       <a href="/task_slaughter/registration">Start now!</a>
     </section>
 

@@ -25,7 +25,7 @@
         function initMap(){
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 10,
-              center: new google.maps.LatLng(-33.92, 151.25),
+              center: new google.maps.LatLng(37.82, -122.29),
               mapTypeId: google.maps.MapTypeId.ROADMAP
             });
             var geocoder = new google.maps.Geocoder();
@@ -58,9 +58,9 @@
                                 infowindow.open(map, marker);
                             }
                         })(marker, content, address, city));
-                    } else {
-                        alert('Geocode was not successful for the following reason: ' + status);
-                    }
+                    } // else {
+                      //  alert('Geocode was not successful for the following reason: ' + status);
+                    //}
                 });
             });
         }
@@ -69,6 +69,7 @@
 
   <body>
     <header>
+       <img src="/static/images/check_mark.png">
        <h1>Task Slaughter</h1>    
            <a id="link_logout" href="/task_slaughter/logout">Logout</a>
         <div class="links">
@@ -84,8 +85,8 @@
     	<p>Here's what you have scheduled for today ({{ curr_date }}):</p>
     	<div id="tasks_back">
             <ul>
-            {% for task in tasks %}
-                
+            <h4>Pending</h4>
+            {% for task in p_tasks %}
                 <li class="task_dash">
                     <input type="hidden" name="address" value="{{ task['street_name'] }}, {{ task['zip_code'] }}"></input>
                     <input type="hidden" name="loc_name" value="{{ task['location_name'] }}"></input>
@@ -94,7 +95,7 @@
                         <input type="hidden"  name="task_id" value="{{ task['id'] }}"></input>
                         <button id="btn_sms" type="submit" name="sms">SMS</button>
                     </form>
-                    <a class="task_desc" href="/task_slaughter/{{ task['id'] }}/edit_schedule">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }} ({{ task['status'] }})</a>
+                    <a class="task_desc" href="/task_slaughter/{{ task['id'] }}/show_schedule">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }}</a>
                     <form class="action" action="/task_slaughter/dashboard/status_update" method="post">
                         {% if task['status'] == 'Pending' %}
                             <button type="submit" name="button" value="done">Done</button>
@@ -103,6 +104,16 @@
                         <input type="hidden" name="task_id" value="{{ task['id'] }}"></input>
                     </form>   
                 </li>
+            {% endfor %}
+
+            <h4 class="border" >Done</h4>
+            {% for task in d_tasks %}
+                <li class="task_dash done_st"><img src="/static/images/dashboard_check.png">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }}</li>
+            {% endfor %}
+
+            <h4 class="border">Cancelled</h4>   
+            {% for task in c_tasks %}
+                <li class="task_dash canc_st">{{ task['time'] }} - {{ task['task_name'] }} @ {{ task['location_name'] }}</li>
             {% endfor %}
             </ul>
         </div>
