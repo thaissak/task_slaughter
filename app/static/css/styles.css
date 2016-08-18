@@ -1,496 +1,100 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,300italic);
-@import url(https://fonts.googleapis.com/css?family=Lemonada:700);
+@import url(https://fonts.googleapis.com/css?family=Trirong:500);
 
 /*COLORS:
 app name - #962d3e (red/pink)
 buttons background - #348899 (blue)
-buttons text color - #fffaf0 (cream/white)
+buttons text color - #f2ebc7 (cream/white)
 titles - #343642 (grey/blue)
 plain text - black
 border color - #962d3e (red/pink)
 background color (header) - #979C9C(grey)
-background color (body) - #fffaf0 (cream/white)
+background color (body) - #f2ebc7 (cream/white)
 create tasks/location - #348899 (blue)*/
-
-/*GENERAL*/ 
 
 body{
 	font-family: 'Lato', Sans-Serif;
-	font-size: 16px;
-	line-height: 1.5em;
-	background-color: #fffaf0;
-	margin: 0;
 }
 
-form{
-	margin-bottom: 0;
-}
-
-h3{
-	font-size: 1.3em;
-}
-
-button{
-	background-color: #173B42;
-	color: #fffaf0;
-	border-radius: 5px;
-	border: 0;
-	padding: 5px;
-	font-size: 1em;
-	margin-top: 5px;
-
-}
-
-a{
-	color: #173B42;
-	font-size: 1em;
-	padding-right: 5px;
-	margin: 5px 0px 5px 0px;
-	font-weight: bold;
-	border: 0px;
+h1{
+	color: #605F83;
+	font-family: 'Trirong', Serif;
 	letter-spacing: 1px;
 }
 
+h3{
+	color: #00134d;
+}
+
 label{
-	margin-bottom: 10px;
-}
-
-#btn_login{
-	margin-left: 84%;
-	margin-top: 10px;
-	background-color: #962d3e;
-}
-
-
-/*ERROR MESSAGES*/
-
-.flashes{
-	list-style: none;
-	color: #8F002A;
-	font-size: 0.9em;
-	padding-left: 0px;
-}
-
-
-/*HEADER*/
-
-h1{
-    color:#962d3e ;
-    font-family: 'Lemonada', Serif;
-    letter-spacing: 1px;
-    font-size: 2.5em;
-    display: inline-block;
-    width: 30%;
-    text-align: center;
-    vertical-align: top;
-}
-
-header{
-    height: 100px;
-    margin: 1% 0%;
-    width: 100%;
-}
-
-header a{
-	display: inline;
-    vertical-align: top;
-}
-
-header img{
-	width: 10%;
-	display: inline-block;
-	margin-left: 26%;
-}
-
-.links{
 	display: block;
-	width: 30%;
-	margin-left: 35%;
-    text-align: center;
+	margin-bottom: 5px;
 }
 
-.links a{
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 5px;
+input{
+	width: 70%;
 }
 
-#link_logout{
-	margin-left: 28%;
-}
-
-#link_home{
-	margin-left: 24%;
-}
-
-/*ABOUT*/
-#about{
-	color: #348899;
-	margin: 0px 60px 40px 60px;
-
-}
-
-#about h3{
-	line-height: 30px;
-	color: #173B42;
-}
-
-
-/*LOGIN*/
-
-.register{
-	background-color: #348899;
-	color: #fffaf0;
+button{
+	font-size: 14px;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
 	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+	font-size: 14px;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+	border-radius: 5px;
+	background-color: #99b3ff;
+	border: 0;
+}
+
+
+.registration{
+	border: 3px solid #002080;
+	border-radius: 5px;
+	padding: 5px;
 }
 
 .login{
-	background-color: #348899;
-	color: #fffaf0;
+	border: 3px solid #002080;
 	border-radius: 5px;
-	margin-left: 4%;
+	padding: 5px;
 }
 
-.login h3{
-	margin-top: 30px;
-	margin-left: 20px;
-}
-
-.register h3, .register p{
-	margin-top: 30px;
-	margin-left: 18px;
-}
-.register a{
-	margin-left: 15px;
-}
-
-.register, .login{
+.registration, .login{
 	display: inline-block;
     width: 40%;
     vertical-align: top;
     margin-right: 20px;
-    min-height: 35%;
 }
 
-/*REGISTRATION*/
 
-.registration{
-	background-color: #348899;
-	color: #fffaf0;
-	margin: 1% 25%;
-	padding: 10px 50px 15px 20px;
-	border-radius: 5px;
-}
-
-.registration h3{
-	color: #fffaf0;
-}
-
-.registration label{
-	margin-bottom: 5px;
-	display: block;
-}
-
-#pwd {
-	width: 50%;
-}
-
-#conf_pwd {
-	width: 50%;
-}
-
-#phone{
-	width: 40%;
-}
-
-/*WEATHER API*/
-
-#weather{
-	display: inline-block;
-	background-color: #fffaf0;
-	border-radius: 5px;
-    padding: 5px 15px 0px 15px;
-}
-
-#weather img{
-	margin-left: 8px;
-}
-
-#weather h4{
-	margin: 0px;
-	text-align: center;
-	color: #173B42;
-}
-
-/*DASHBOARD*/
-
-table{
-	width: 100%;
-	padding-top: 1%;
-}
-
-ul li{
+.flashes{
 	list-style: none;
+	color: #8F002A;
+	font-size: 14px;
+	padding-left: 0px;
 }
-
-ul p{
-	display: inline-block;
-}
-
-
-
-.sms{
-	display: inline-block;
-	margin-left: 2%;
-}
-
-
-
-.task_desc{
-	font-size: 0.9em;
-	margin-bottom: 2px;
-	padding: 1% 0% 1% 0%;
-	color: #fffaf0;
-	width: 60%;
-	margin-right: 2px;
-}
-
-.action{
-	display: inline-block;
-}
-
-.action button{
-	display: inline;
-	margin-right: 5px;
-	
-}
-
-.action form{
-	display: inline-block;
-}
-
-.action form{
-	display: inline-block;
-	width: 100%;
-}
-
-.task_dash{
-	margin-top: 2px;
-}
-
-.border{
-	border-top: 2px solid #fffaf0;
-	border-radius: 0px 0px 5px 0px ;
-}
-
-.done_st{
-	margin-left: 5px;
-	color: #fffaf0;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-
-
-.done_st img{
-	width: 5%;
-	margin-right: 4px;
-	margin-left: 4px;
-	vertical-align: text-top;
-}
-
-.canc_st{
-	color: silver;
-	margin-left: 10px;
-}
-
-#tasks_back h4{
-	color: #173B42;
-	margin-left: 10px;
-	margin-right: 10px;
-    margin-top: 8px;
-    padding-top: 5px;
-    margin-bottom: 3px;
-}
-
-#dashboard{
-	width: 100%;
-	padding: 1%;
-}
-
-#dashboard h3{
-	color: #173B42;
-	margin-left: 5px;
-}
-
-#dashboard p{
-	color: #173B42;
-	margin-left: 5px;
-}
-
-#dashboard h3{
-	margin-bottom: 10px;
-}
-
-#dashboard p{
-	margin-top: 0px;
-}
-
-#dashboard ul{
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-#dashboard button{
-	font-size: 0.7em;
-	letter-spacing: 1px;
-}
-
-#tasks_back{
-	min-height: 500px;
-	background-color: #348899;
-	border-radius: 5px;
-	width: 40%;
-	display: inline-block;
-	vertical-align: top;
-}
-
-#map{
-	display: inline-block;
-	vertical-align: top;
-	width: 59%; 
-	min-height: 500px;
-
-}
-
-#btn_sms{
-	background-color: #962d3e;
-	margin-right: 2px;
-}
-
-
-/*NEW SCHEDULE*/
-
-.new_task{
-	margin: 5px 20px 5px 10px;
-	background-color: #348899;
-	color: #fffaf0;
-	border-radius: 5px;
-	width: 60%;
-}
-
-.fofo input{
-	width: 95%;
-	font-size: 0.9em;
-	border-radius: 5px;
-}
-
-.new_task select{
-	width: 30%;
-	font-size: 1em;
-	border-radius: 5px;
-	margin-bottom: 10px;
-}
-
-.new_location{
-	margin: 5px 0px 5px 10px;
-	background-color: #348899;
-	color: #fffaf0;
-	border-radius: 5px;
-	width: 60%;
-}
-
-.new_location input{
-	width: 60%;
-	font-size: 0.9em;
-}
-
-.new_location label{
-	display: block;
-}
-
-.datetime label{
-	display: inline-block;
-	width: 25%;
-	margin-bottom: 10px;
-	margin-right: 40px;
-}
-
-.fofo{
-	padding: 0px 50px 15px 20px;
-}
-
-.city_st label{
-	display: inline-block;
-	width: 30%;
-}
-
-#city{
-	width: 95%;
-}
-
-#state{
-	width: 20%;
-}
-
-#zip{
-	width: 15%;
-}
-
-#form_new{
-	margin-left: 28%;
-	margin-top: 4%;
-}
-
-#input_date{
-	width: 130%;
-}
-
-/*ALL TASKS*/
-
-.all_tasks{
-	background-color: #348899;
-	color: #fffaf0; 
-	border-radius: 5px;
-	width: 45%;
-	margin-left: 24%;
-    margin-top: 2%;
-    padding: 1% 2%;
-}
-
-#all_tasks_h3{
-	color: #348899;
-	text-align:left;
-	margin-left: 24%;
-    margin-top: 4%;
-    line-height: 0;
-    letter-spacing: 1px;
-}
-
-.all_tasks a{
-	letter-spacing: 1px;
-	margin-bottom: 8px;
-	margin-top: 5px;
-}
-
-.all_tasks p{
-	margin-top: 1px;
-	margin-bottom: 8px;
-}
-
-/*JQUERY - NEW_SCHEDULE.HTML*/
 
 .collapse_on{
-	background-color: #348899;
-	color: #fffaf0;
-	border-radius: 5px;
-	width: 60%;
+	background-color: #f9edeb;
+	color: #2B3856;
+	width: 79%;
+	margin: 0% 8% 0% 11%;
+	padding: 1% 1%;
 }
 
-.collapse_on h3{
-	color: #fffaf0;
-	padding: 15px 10px;
+.collapse_off{
+	background-color: #Ebe3e0;
+	border-radius: 10px 10px 0px 0px;
+	
 }
 
 .hidden{

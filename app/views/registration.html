@@ -5,13 +5,12 @@
   </head>
   <body>
     <header>
-       <img src="/static/images/check_mark.png"> 
-       <h1>Task Slaughter</h1>    
-       <a id="link_home" href="/task_slaughter">Back</a>
+        <h1>Task Slaughter</h1>
+        <a href="/task_slaughter">Back</a> 
     </header>
     
     <section class="registration">
-    	<h3>Registration</h3>
+    	<h1>Registration</h1>
     	{% with messages = get_flashed_messages(category_filter=['validation']) %}
     		{% if messages %}
     			<ul class="flashes">
@@ -21,7 +20,7 @@
       			</ul>
     		{% endif %}
     	{% endwith %}
-    	<form class="fofo" action="/task_slaughter/registration_process" method="post">
+    	<form class="form" action="/task_slaughter/registration_process" method="post">
     		<label>
     			First Name:<br>
     			<input type="text" name="first_name"></input>
@@ -31,20 +30,20 @@
     			<input type="text" name="last_name"></input>
     		</label>
             <label>
-                E-mail:<br>
-                <input type="email" name="email"></input>
-            </label>
-            <label>
                 Phone:<br>
-                <input id="phone" type="text" name="phone" placeholder="1111111111"></input>
+                <input type="text" name="phone"></input>
             </label>
     		<label>
+    			E-mail:<br>
+    			<input type="email" name="email"></input>
+    		</label>
+    		<label>
     			Password:<br>
-    			<input id="pwd" type="password" name="password"></input>
+    			<input type="password" name="password"></input>
     		</label>
     		<label>
     			Confirm Password:<br>
-    			<input id="conf_pwd" type="password" name="pwd_conf"></input>
+    			<input type="password" name="pwd_conf"></input>
     		</label>
             <button type="submit" name="add">Submit</button>
         </form>

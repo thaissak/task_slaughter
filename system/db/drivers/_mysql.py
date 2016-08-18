@@ -21,7 +21,7 @@ def connect(config, app):
         'host': config.DB_HOST,
         'port': config.DB_PORT,
     }
-    dbconfig.update(config.DB_OPTIONS)
+    # dbconfig.update(config.DB_OPTIONS)
     app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://" + str(config.DB_USERNAME) + ":" + str(config.DB_PASSWORD) + "@127.0.0.1:" + str(config.DB_PORT) + "/" + config.DB_DATABASE_NAME
     db = SQLAlchemy(app)
 
@@ -46,6 +46,7 @@ def connect(config, app):
     def _get_one(query, data=None):
         result = db.session.execute(text(query), data).fetchone()
         return result
+
     db.query_db = _query_db
     db.get_one = _get_one
     return db
