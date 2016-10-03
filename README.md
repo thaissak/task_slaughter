@@ -8,4 +8,4 @@ We use: Python, mySQL Workbench, Google Maps API, Twilio API and Pylot(MVC frame
 
 #Won 1st place! :)
 
-URL: http://52.37.60.82/task_slaughter
+URL: http://52.39.69.104/task_slaughter
